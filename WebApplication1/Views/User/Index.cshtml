@@ -18,6 +18,7 @@
         <td>Detaylar</td>
         <td>Sil</td>
         <td>Güncelle</td>
+        <td>Roller</td>
     </tr>
     @foreach (var item in Model)
     {
@@ -29,6 +30,7 @@
             <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
             <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
             <td><a href="#" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="/User/AssignRole/@item.Id" class="btn btn-outline-success">Roller</a></td>
         </tr>
     }
 </table>
