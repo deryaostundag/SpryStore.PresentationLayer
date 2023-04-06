@@ -18,6 +18,11 @@ namespace SpryStore.BusinessLayer.Concrete
             _productDal = productDal;
         }
 
+        public List<Product> GetLast4Product()
+        {
+            return _productDal.GetLast4Product();
+        }
+
         public void TDelete(Product t)
         {
             _productDal.Delete(t);

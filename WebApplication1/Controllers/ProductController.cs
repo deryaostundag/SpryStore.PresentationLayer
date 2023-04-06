@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SpryStore.BusinessLayer.Abstract;
 using SpryStore.EntityLayer.Concrete;
@@ -7,6 +8,7 @@ using System.Linq;
 
 namespace WebApplication1.Controllers
 {
+    
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -40,6 +42,11 @@ namespace WebApplication1.Controllers
         {
             _productService.TInsert(product);
             return RedirectToAction("Index");
+        }
+        public IActionResult GetLast4Products()
+        {
+            var values= _productService.TGetList();
+            return View(values);
         }
     }
 }

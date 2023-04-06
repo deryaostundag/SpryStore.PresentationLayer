@@ -13,6 +13,12 @@ namespace SpryStore.DataAccessLayer.EntityFramework
 {
     public class EfProductDal : GenericRepository<Product>, IProductDal
     {
+        public List<Product> GetLast4Product()
+        {
+            var context = new Context();
+            return context.Products.Take(4).OrderByDescending(x => x.ProductID).ToList();
+        }
+
         public List<Product> GetProductsListWithCategory()
         {
             var context = new Context();
