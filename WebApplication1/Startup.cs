@@ -42,6 +42,10 @@ namespace WebApplication1
             services.AddScoped<IContactService, ContactManager>();
             services.AddScoped<IContactDal, EfContactDal>();
 
+            services.AddScoped<IAddressDal, EfAddressDal>();
+            services.AddScoped<IAddressService, AddressManager>();
+           
+
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
 
@@ -50,8 +54,8 @@ namespace WebApplication1
             services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
-                .RequireAuthenticatedUser()
-                .Build();
+                                .RequireAuthenticatedUser()
+                                .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
             services.ConfigureApplicationCookie(options =>

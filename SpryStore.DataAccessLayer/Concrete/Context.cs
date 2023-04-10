@@ -20,5 +20,6 @@ namespace SpryStore.DataAccessLayer.Concrete
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Address> Addresses { get; set; }
     }
 }
